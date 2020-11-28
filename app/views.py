@@ -1,6 +1,14 @@
-from flask import Flask
+from flask import render_template
+from app import app
 
-# Initializing application
-app = Flask(__name__)
 
-from app import views
+
+#views
+
+@app.route('/')
+def index():
+    '''
+    Views root page function that returns the index page and its data
+    '''
+
+    return render_template('index.html')
