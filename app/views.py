@@ -11,5 +11,8 @@ def index():
     View root page function that returns the index page and its data
     '''
 
-    title = 'Home - Welcome to The best Movie Review Website Online'
-    return render_template('index.html', title = title)
+# Getting popular movie
+    popular_news = get_news('popular news')
+    print(popular_news)
+    title = 'Home - Welcome to The best news Review Website Online'
+    return render_template('index.html', sources = popular_news,)
