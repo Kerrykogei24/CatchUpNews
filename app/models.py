@@ -14,7 +14,7 @@ class Headlines:
     '''
     class that define instance of headlines
     '''
-     def __init__(self,author,description,time,url,image,title):
+    def __init__(self,author,description,time,url,image,title):
         self.author = author
         self.description = description
         self.time = time
