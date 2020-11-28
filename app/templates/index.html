@@ -1,4 +1,4 @@
-{% import 'macros.html' as macro%}
+{% extends 'base.html'%}{% block content %}
 <!DOCTYPE html>
 <html>
 
@@ -11,11 +11,17 @@
 </head>
 
 <body>
+    {% for headlines in headlines %}
     <!-- Popular movie -->
-    <h3> Business</h3>
+    <h3> HEADLINE</h3>
     <ul>
-        {{ macro.displaySourceList(headlines.description)}}
+        <img src="{{headlines.image}}" alt="">
+        <li> {{headlines.description}}</li>
+        <a href="{{headlines.url}}"><button>{{headlines.author}}</button></a>
+        <li></li>
     </ul>
+    {% endfor %}
 </body>
+{% endblock %}
 
 </html>
