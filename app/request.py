@@ -51,7 +51,7 @@ def process_results(sources_list):
         url = source_item.get('url')
       
         if id:
-            sources_object = Sources(name,description,url)
+            sources_object = Sources(id,name,description,url)
             sources_results.append(sources_object)
 
     return sources_results
@@ -73,3 +73,22 @@ def get_headlines():
             get_headlines_results = process_articles_results(get_headlines_list)
 
     return get_headlines_results
+
+def process_articles_results(news):
+    '''
+    function that processes the json files of articles from the api key
+    '''
+    article_source_results = []
+    for article in news:
+        author = article.get('author')
+        description = article.get('description')
+        time = article.get('publishedAt')
+        url = article.get('urlToImage')
+        image = article.get('url')
+        title = article.get ('title')
+
+        if url:
+            article_objects = Article(author,description,time,image,url,title)
+            article_source_results.append(article_objects)
+
+    return article_source_results

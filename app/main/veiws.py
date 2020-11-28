@@ -1,6 +1,6 @@
 from flask import render_template,redirect,url_for
 from . import main
-from ..request import get_sources
+from ..request import get_sources, get_headlines
 
 
 #Views 
@@ -12,7 +12,7 @@ def index():
     source = get_sources()
     headlines = get_headlines()
     return render_template('index.html',sources=source, headlines = headlines)
-    
+
 @main.route('/article/<id>')
 def article(id):
 
