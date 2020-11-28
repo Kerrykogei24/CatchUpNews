@@ -1,3 +1,4 @@
+{% extends 'base.html'%}
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +11,8 @@
 </head>
 
 <body>
-
+    {% block content %}{% for article in articles %}
+    <p>{{article.description}}</p> {% endfor %} {% endblock %}
 </body>
 
 </html>

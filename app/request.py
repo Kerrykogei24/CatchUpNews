@@ -15,12 +15,11 @@ def configure_request(app):
     head_news_url = app.config['HEAD_API_URL']
 
 
-def get_sources(category):
+def get_sources():
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = base_url.format(category,api_key)
-    # get_news_url = "https://newsapi.org/v2/sources?&apiKey=f704406e04b249f7b6e18849f7bb114c"
+    get_sources_url = base_url.format(api_key)
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
@@ -46,15 +45,31 @@ def process_results(sources_list):
     '''
     sources_results = []
     for source_item in sources_list:
+        id = source_item.get('id')
         name = source_item.get('name')
         description = source_item.get('description')
         url = source_item.get('url')
-        # poster = news_item.get('poster_path')
-        # vote_average = news_item.get('vote_average')
-        # vote_count = news_item.get('vote_count')
-
-        if source:
+      
+        if id:
             sources_object = Sources(name,description,url)
             sources_results.append(sources_object)
 
     return sources_results
+
+def get_headlines():
+    '''
+    function that gets the response to the category json
+    '''
+    get_headlines_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'.format(api_key)
+    print(get_headlines_url)
+    with urllib.request.urlopen(get_headlines_url) as url:
+        get_headlines_data = url.read()
+        get_headlines_response = json.loads(get_headlines_data)
+
+        get_headlines_results = None
+
+        if get_headlines_response['articles']:
+            get_headlines_list = get_headlines_response['articles']
+            get_headlines_results = process_articles_results(get_headlines_list)
+
+    return get_headlines_results
