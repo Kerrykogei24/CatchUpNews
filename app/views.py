@@ -15,4 +15,4 @@ def index():
     popular_news = get_news('popular news')
     print(popular_news)
     title = 'Home - Welcome to The best news Review Website Online'
-    return render_template('index.html', sources = popular_news,)
+    return render_template('index.html',title=title, sources = popular_news)
