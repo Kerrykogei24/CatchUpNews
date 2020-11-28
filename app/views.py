@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_news
+from .request import get_sources
 
 
 
@@ -13,7 +13,7 @@ def index():
     '''
 
 # Getting popular movie
-    popular_news = get_news('sources')
-    print(popular_news)
+    business_sources = get_sources('business')
+    print(business_sources)
     title = 'Home - Welcome to The best news Review Website Online'
-    return render_template('index.html',title=title, sources = popular_news)
+    return render_template('index.html',title=title, business = business_sources)
