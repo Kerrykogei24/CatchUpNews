@@ -12,19 +12,27 @@
 
 <body>
 
-    <!-- Popular movie -->
-    <h3> HEADLINE</h3>
-    {% for source in sources %}
-    <h3>{{source.name}}</h3>
-    {% for headlines in headlines %}
-    <ul>
-        <img src="{{headlines.image}}" alt="" width="200px">
-        <li> {{headlines.description}}</li>
-        <a href="{{headlines.url}}"><button>{{headlines.author}}</button></a>
-        <a href="/article/{{source.id}}" class="btn btn-primary btn-sm">View Article</a>
-    </ul>
-    {% endfor %} {% endfor %}
-</body>
-{% endblock %}
+    <div class="container-fluid">
+        <div class="card card-cascade wider">
+            <h1 style="text-align:center"> NEWS UPDATES. </h1>
+            {% for headlines in headlines %}
+            <div class="view view-cascade overlay">
+                <img src="{{headlines.image}}" alt="image" class="img-thumbnail" width="100%" height="300">
+            </div>
+
+            <div class="card-body card-body-cascade text-center pb-0">
+                <h4 class="card-title"><strong>{{headlines.author}}</strong></h4>
+                <p class="card-text">{{headlines.description}}</p>
+                <a href="{{headlines.url}}">
+                    <p class="card-text badge badge-success">Read more...</p>
+                </a>
+                <div class="card-footer text-muted text-center mt-4">
+                    <small class="text-muted">Publish date:{{headlines.time}}</small>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endblock %} -->
 
 </html>

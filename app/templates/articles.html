@@ -2,11 +2,24 @@
 
 
 
-<div>
-    {% for article in articles %}
-    <h3>{{article.name}}</h3>
-    <img src="{{article.image}}" alt="" width="300">
-    <p>{{article.content}}</p>
-    <h4>{{article.time}}</h4>
-    <a href="{{article.url}}"><button>Raad more</button></a> {% endfor %} {% endblock %}
-</div>
+<h1 style="text-align:center" class="text-capitalize"> {{id}} </h3>
+    <div class="container">
+        <div class="card-columns">
+            {% for article in articles %}
+            <div class="card">
+                <img class="card" src="{{article.image}}" alt="Card image cap" size="100px180">
+                <div class="card-body">
+                    <h5 class="card-title">{{article.author}}</h5>
+                    <p class="card-text">{{article.description}}</p>
+                    <a href="{{article.url}}">
+                        <p class="card-text badge badge-success">Read More..</p>
+                    </a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Article date:{{article.time}}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
