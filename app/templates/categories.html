@@ -1,0 +1,7 @@
+{% extends 'base.html'%} {% block content %}
+<div>
+    {% for category in category %}
+    <p>{{category.description}}</p>
+    <a href="{{category.url}}"></a>
+</div>
+{% endfor %}{% endblock %}
