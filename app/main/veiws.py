@@ -1,6 +1,6 @@
 from flask import render_template,redirect,url_for
 from . import main
-from ..request import get_sources, get_headlines,get_category
+from ..request import get_sources, get_headlines,get_category,article_source
 
 
 #Views 
@@ -21,7 +21,9 @@ def article(id):
     '''
     # title= 'Articles'
     articles = article_source(id)
-    return render_template('article.html',articles= articles,id=id )
+    title = f'{id}'
+    
+    return render_template('articles.html',articles= articles,title=title )
 @main.route('/categories/<category>')
 def category(category):
     '''

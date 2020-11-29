@@ -1,0 +1,10 @@
+{% extends 'base.html'%} {% block content %}
+
+
+
+<div>
+    {% for article in articles %}
+    <img src="{{article.image}}" alt="" width="300">
+    <p>{{article.description}}</p>
+    <a href="{{article.url}}"><button>Raad more</button></a> {% endfor %} {% endblock %}
+</div>

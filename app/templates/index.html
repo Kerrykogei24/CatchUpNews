@@ -20,10 +20,10 @@
     <ul>
         <img src="{{headlines.image}}" alt="" width="200px">
         <li> {{headlines.description}}</li>
-        <a href="{{headlines.url}}"><button>read more</button></a>
-        <li>{{headlines.time}}</li>
+        <a href="{{headlines.url}}"><button>{{headlines.author}}</button></a>
+        <a href="/article/{{source.id}}" class="btn btn-primary btn-sm">View Article</a>
     </ul>
-    <a href="/sources/{{source.id}}" class="btn btn-primary btn-sm">View Article</a> {% endfor %} {% endfor %}
+    {% endfor %} {% endfor %}
 </body>
 {% endblock %}
 

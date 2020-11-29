@@ -109,11 +109,11 @@ def process_articles_results(news):
 
     return article_source_results
 
-def get_category(category):
+def get_category(cat_name):
     '''
     function that gets the response to the category json
     '''
-    get_category_url = head_news_url.format(category,api_key)
+    get_category_url = cat_url.format(cat_name,api_key)
     print(get_category_url)
     with urllib.request.urlopen(get_category_url) as url:
         get_category_data = url.read()
