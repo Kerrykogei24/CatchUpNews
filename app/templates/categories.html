@@ -1,7 +1,9 @@
 {% extends 'base.html'%} {% block content %}
 <div>
-    {% for category in category %}
+    {% for source in sources %} {% for category in category %}
+    <img src="{{category.image}}" alt="" width="300">
     <p>{{category.description}}</p>
-    <a href="{{category.url}}"></a>
+    <p>{{category.time}}</p>
+    <a href="{{category.url}}"><button>read more</button></a>
 </div>
-{% endfor %}{% endblock %}
+{% endfor %}{% endfor %}{% endblock %}
