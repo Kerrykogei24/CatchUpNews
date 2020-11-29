@@ -11,16 +11,19 @@
 </head>
 
 <body>
-    {% for headlines in headlines %}
+
     <!-- Popular movie -->
     <h3> HEADLINE</h3>
+    {% for source in sources %}
+    <h3>{{source.name}}</h3>
+    {% for headlines in headlines %}
     <ul>
-        <img src="{{headlines.image}}" alt="">
+        <img src="{{headlines.image}}" alt="" width="200px">
         <li> {{headlines.description}}</li>
         <a href="{{headlines.url}}"><button>{{headlines.author}}</button></a>
         <li></li>
     </ul>
-    {% endfor %}
+    {% endfor %} {% endfor %}
 </body>
 {% endblock %}
 

@@ -92,3 +92,4 @@ def process_articles_results(news):
             article_source_results.append(article_objects)
 
     return article_source_results
+
