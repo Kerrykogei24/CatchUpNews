@@ -1,6 +1,7 @@
 
 import urllib.request,json
 from .models import Sources,Headlines,Article
+from datetime import date
 
 
 # Getting api key
@@ -98,22 +99,22 @@ def process_articles_results(news):
     for article in news:
         author = article.get('author')
         description = article.get('description')
-        time = article.get('publishedAt')
+        date = article.get('publishedAt')
         url = article.get('urlToImage')
         image = article.get('url')
         title = article.get ('title')
-
+        content= article.get('content')
         if url:
-            article_objects = Article(author,description,time,image,url,title)
+            article_objects = Article(author,description,date,image,url,title,content)
             article_source_results.append(article_objects)
 
     return article_source_results
 
-def get_category(cat_name):
+def get_category(category):
     '''
     function that gets the response to the category json
     '''
-    get_category_url = cat_url.format(cat_name,api_key)
+    get_category_url = head_news_url.format(category,api_key)
     print(get_category_url)
     with urllib.request.urlopen(get_category_url) as url:
         get_category_data = url.read()
