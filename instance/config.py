@@ -1,2 +1,2 @@
-NEWS_API_KEY ='aec6f4d84dae4ec8a599e4bacbaed3ca'
+NEWS_API_KEY ='f704406e04b249f7b6e18849f7bb114c'
 SECRET_KEY='chucknorris'
