@@ -13,7 +13,7 @@ def index():
     headlines = get_headlines()
     return render_template('index.html',sources=source, headlines = headlines)
 
-@main.route('/article/<id>')
+@main.route('/articles/<id>')
 def article(id):
 
     '''
