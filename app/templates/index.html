@@ -13,26 +13,54 @@
 <body>
 
     <div class="container-fluid">
-        <div class="card card-cascade wider">
-            <h1 style="text-align:center"> NEWS UPDATES. </h1>
-            {% for headlines in headlines %}
-            <div class="view view-cascade overlay">
-                <img src="{{headlines.image}}" alt="image" class="img-thumbnail" width="100%" height="300">
+        <div class="jumbotron">{% for source in sources %}
+            <div class="card card-cascade wider">
+                <h1 style="text-align:center"> NEWS UPDATES. </h1>
+                {% for headlines in headlines %}
+
+                <h4>{{source.name}}</h4>
+                <div class="view view-cascade overlay">
+                    <img src="{{headlines.image}}" alt="image" class="img-thumbnail" width="50%">
+                </div>
+
+                <div class="card-body card-body-cascade text-center pb-0">
+                    <h4 class="card-title"><strong>{{headlines.author}}</strong></h4>
+                    <p class="card-text">{{headlines.description}}</p>
+                    <a href="/article/{{source.id}}">
+                        <p class="card-text badge badge-success">Read more...</p>
+                    </a>
+                    <div class="card-footer text-muted text-center mt-4">
+                        <small class="text-muted">Publish date:{{headlines.time}}</small>
+                    </div>
+                    {% endfor %} {% endfor %}
+                </div>
             </div>
 
-            <div class="card-body card-body-cascade text-center pb-0">
-                <h4 class="card-title"><strong>{{headlines.author}}</strong></h4>
-                <p class="card-text">{{headlines.description}}</p>
-                <a href="{{headlines.url}}">
-                    <p class="card-text badge badge-success">Read more...</p>
-                </a>
-                <div class="card-footer text-muted text-center mt-4">
-                    <small class="text-muted">Publish date:{{headlines.time}}</small>
-                </div>
-                {% endfor %}
-            </div>
         </div>
     </div>
-    {% endblock %} -->
+    <style>
+        body {
+            background-image: url("https://www.xmple.com/wallpaper/linear-white-gradient-blue-highlight-1920x1080-c2-ffffff-87cefa-l-67-a-60-f-21.svg");
+            background-repeat: repeat;
+            background-size: cover;
+            background-position: left;
+        }
+        
+        .jumbotron {
+            background-color: transparent;
+            text-align: center;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: 400px 400px;
+            width: 100%;
+            margin: auto auto auto auto;
+        }
+        
+        .jumbotron>h1 {
+            text-align: center;
+        }
+    </style>
+</body>
+{% endblock %}
 
 </html>
