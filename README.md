@@ -39,7 +39,7 @@ This is an application whereby it contains current issues i.e news to help those
 
 ## Contact Information 
 
-If you have any question or contributions, please email me at [lekamcharity@gmail.com]
+If you have any question or contributions, please email me at [kerrykomar@gmail.com]
 
 ### License
   [MIT] Copyright (c) 2020 Kerry Kogei
